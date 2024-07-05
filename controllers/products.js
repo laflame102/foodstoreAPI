@@ -33,7 +33,7 @@ const getProductsByCategory = async (req, res) => {
 };
 
 const getAllCategories = async (req, res) => {
-  const categories = await Product.findAll({
+  const result = await Product.findAll({
     attributes: ["id", "categoryId"],
   });
 
@@ -41,7 +41,7 @@ const getAllCategories = async (req, res) => {
     throw HttpError(404, "No categories found");
   }
 
-  res.json(categories);
+  res.json(result);
 };
 
 const updateProduct = async (req, res) => {
